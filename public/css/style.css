@@ -1,0 +1,28 @@
+* {
+    font-family: nunito;
+}
+.navbar {
+    background-color: #ffff;
+}
+.navbar .navbar-brand {
+    font-size: 25px;
+}
+.nav-item {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding
+}
+.banner {
+    /* background: url("img/bg-1.jpg"); */
+    height: 20pc;
+    color: #c4c4c4;
+}
+.about {
+    /* background-color: #c4c4c4; */
+    height: 20pc        ;
+}
+.about-text {
+    padding-top: 45px;
+}
