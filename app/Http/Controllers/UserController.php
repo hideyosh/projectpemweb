@@ -18,7 +18,7 @@ class UserController extends Controller
         $user = User::query()->paginate(10);
         return view('admin.user.index', [
             'user' => $user,
-            'title' => 'Admin',
+            'title' => 'User',
 
         ]);
     }
@@ -31,7 +31,7 @@ class UserController extends Controller
     public function create()
     {
         return view('admin.user.create', [
-            'title' => 'Create Admin',
+            'title' => 'Create User',
         ]);
     }
 
