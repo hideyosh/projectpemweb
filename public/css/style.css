@@ -16,13 +16,11 @@
 }
 .banner {
     /* background: url("img/bg-1.jpg"); */
-    height: 20pc;
-    color: #c4c4c4;
+    height: 22pc;
+    color: #ffb200;
 }
 .about {
     /* background-color: #c4c4c4; */
     height: 20pc        ;
 }
-.about-text {
-    padding-top: 45px;
-}
+

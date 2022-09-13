@@ -45,10 +45,9 @@
       <section class="banner  py-5" style="background: url(img/bg-1.jpg)">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <h1 >Banner</h1>
-                   <p>Ini adalah banner</p>
-                   <p>cuman belum ada gambarnya </p>
+                <div class="col-12 text-center py-5">
+                    <h1>UcokzJaya</h1>
+                   <p>Tempat jual beli bahan bangunan terpercaya</p>
                 </div>
             </div>
         </div>
@@ -56,7 +55,7 @@
       <section class="about py-5 text-center" style="background: #ffb200;">
         <div class="container">
             <div class="row">
-                <div class="col-12 about-text">
+                <div class="col-12 py-5">
                     <h1>About</h1>
                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita assumenda, perspiciatis ipsum voluptatum neque ut ipsa quo exercitationem illo, molestias, mollitia inventore quos libero voluptates dolores tempora necessitatibus aliquid excepturi.</p>
                 </div>
@@ -65,11 +64,12 @@
       </section>
       <section class="review border py-5 ">
         <div class="container">
+            <h1 class="text-center pb-5">Review</h1>
             <div class="row">
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body  text-center">
-                            <h1>User 1</h1>
+                            <h2>User 1</h2>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, voluptate iste, aut nihil quibusdam enim alias nobis, pariatur commodi soluta non quam quo sequi ipsum earum magnam? Consequatur, magni iure?</p>
                         </div>
                     </div>
@@ -77,15 +77,15 @@
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body  text-center">
-                            <h1>User 2</h1>
+                            <h2>User 2</h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, asperiores corrupti sint rem quisquam beatae soluta dolores itaque eum laudantium cupiditate adipisci iure nihil quidem magni omnis illo recusandae error?</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="card">
-                        <div class="card-body text-center">
-                            <h1>User 3</h1>
+                        <div class="card   -body text-center">
+                            <h2>User 3</h2>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et ad aut, blanditiis, magni officiis, impedit molestiae laboriosam vitae deleniti consequatur rerum ipsa. Odit harum sit incidunt facere, necessitatibus rerum quibusdam!</p>
                         </div>
                     </div>
@@ -93,5 +93,10 @@
             </div>
         </div>
       </section>
+      <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+          <span class="text-muted">UcokzJaya v.1</span>
+        </div>
+      </footer>
 </body>
 </html>
