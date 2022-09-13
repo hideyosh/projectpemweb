@@ -3,7 +3,7 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 mb-4">Dashboard</h1>
+    <h1 class="mt-4 mb-4">{{ $title }}</h1>
         <div class="row">
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-dark text-white mb-4">
