@@ -3,11 +3,11 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading"></div>
-                <a class="nav-link mb-2" href="{{ route('home') }}">
+                <a class="nav-link mb-2 {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-columns"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link collapsed mb-2" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed mb-2 {{ Route::is('user.index','user.create','user.edit') ? 'active' : '' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon" ><i class="fas fa-user"></i></div>
                     User
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>

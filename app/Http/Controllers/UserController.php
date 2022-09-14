@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 
 class UserController extends Controller
 {
@@ -15,10 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::query()->paginate(10);
+        $user = User::paginate(10);
         return view('admin.user.index', [
             'user' => $user,
-            'title' => 'User',
+            'title' => 'Admin Table',
 
         ]);
     }
@@ -31,7 +32,7 @@ class UserController extends Controller
     public function create()
     {
         return view('admin.user.create', [
-            'title' => 'Create User',
+            'title' => 'Create Admin',
         ]);
     }
 
@@ -43,7 +44,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email|max:30',
+            'alamat' => 'required|max:100',
+            'telepon' => 'required|max:13',
+            'password' => 'required|min:8',
+        ]);
     }
 
     /**
