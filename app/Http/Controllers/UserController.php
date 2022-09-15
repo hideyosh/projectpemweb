@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Auth\Events\Validated;
+// use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -42,15 +44,38 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
         $validated = $request->validate([
-            'name' => 'required|max:30',
-            'email' => 'required|email|max:30',
-            'alamat' => 'required|max:100',
-            'telepon' => 'required|max:13',
-            'password' => 'required|min:8',
+            'name' => ['required','max:30'],
+            'email' => ['required','email','max:255','unique:users'],
+            'alamat' => ['required','max:100'],
+            'telepon' => ['required','max:13'],
+            'password' => ['required','min:8'],
         ]);
+        // $data = $request->all();
+        // $validated = Validator::make($data, [
+        //     'name' => ['required', 'max:30'],
+        //     'email' => ['required', 'email', 'max:255', 'unique:users'],
+        //     'alamat' => ['required', 'max:100'],
+        //     'telepon' => ['required', 'max:13'],
+        //     'password' => ['required', 'min:8'],
+        // ]);
+
+        // $data['password'] = Hash::make($data['password']);
+
+        // User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'telepon' => $data['telepon'],
+        //     'alamat' => $data['alamat'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+
+        $store = $request->all();
+        $user->create($store);
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -59,9 +84,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('admin.user.view', [
+            'user' => $user,
+            'title' => 'Detail Admin',
+        ]);
     }
 
     /**
@@ -70,9 +98,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', [
+            'user' => $user,
+            'title' => 'Edit Admin'
+        ]);
     }
 
     /**
@@ -82,9 +113,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $update = $request->validated();
+
+        if ($request->filled('password')) {
+            $update['password'] = $request->password;
+        }
+
+        $user->update($update);
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -93,8 +132,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('user.index');
     }
 }

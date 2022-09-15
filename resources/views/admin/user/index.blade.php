@@ -3,7 +3,7 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4 mb-4">{{ $title }}</h1>
     <div class="mb-4">
-        <a class="btn btn-warning" href="{{ route('user.create') }}">Create Admin</a>
+        <a class="btn btn-warning w-100" href="{{ route('user.create') }}">Create Admin</a>
     </div>
     <div class="card mb-4">
         <div class="card-body">
@@ -14,23 +14,41 @@
                     <th>Email</th>
                     <th>Address</th>
                     <th>Phone Number</th>
+                    <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                    @foreach ($user as $user)
+                        <tr>
+                            <td>
+                                <p>{{ $user->name }}</p>
+                            </td>
+                            <td>
+                                <p>{{ $user->email }}</p>
+                            </td>
+                            <td>
+                                <p>{{ $user->alamat }}</p>
+                            </td>
+                            <td>
+                                <p>{{ $user->telepon }}</p>
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning">
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                                <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button href="{{ route('logout') }}" class="btn btn-warning">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
