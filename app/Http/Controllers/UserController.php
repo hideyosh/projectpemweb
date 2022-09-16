@@ -53,26 +53,9 @@ class UserController extends Controller
             'telepon' => ['required','max:13'],
             'password' => ['required','min:8'],
         ]);
-        // $data = $request->all();
-        // $validated = Validator::make($data, [
-        //     'name' => ['required', 'max:30'],
-        //     'email' => ['required', 'email', 'max:255', 'unique:users'],
-        //     'alamat' => ['required', 'max:100'],
-        //     'telepon' => ['required', 'max:13'],
-        //     'password' => ['required', 'min:8'],
-        // ]);
-
-        // $data['password'] = Hash::make($data['password']);
-
-        // User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'telepon' => $data['telepon'],
-        //     'alamat' => $data['alamat'],
-        //     'password' => Hash::make($data['password']),
-        // ]);
 
         $store = $request->all();
+        $store['password'] = Hash::make($request->password);
         $user->create($store);
 
         return redirect()->route('user.index');
@@ -115,10 +98,18 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $update = $request->validated();
+        $validated = $request->validate([
+            'name' => ['required','max:30'],
+            'email' => ['required','email','max:255'       ],
+            'alamat' => ['required','max:100'],
+            'telepon' => ['required','max:13'],
+            'password' => ['required','min:8'],
+        ]);
+
+        $update = $request->all();
 
         if ($request->filled('password')) {
-            $update['password'] = $request->password;
+            $update['password'] = Hash::make($request->password);
         }
 
         $user->update($update);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\product;
 
 class ProductController extends Controller
 {
@@ -13,7 +15,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = Product::paginate('10');
+        return view('admin.product.index', [
+            'product' => $product,
+            'title' => 'Product table'
+
+        ]);
     }
 
     /**

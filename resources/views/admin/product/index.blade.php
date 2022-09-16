@@ -3,7 +3,7 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4 mb-4">{{ $title }}</h1>
     <div class="mb-4">
-        <a class="btn btn-warning w-100" href="{{ route('user.create') }}">Create Admin</a>
+        <a class="btn btn-warning w-100" href="{{ route('product.create') }}">Create Admin</a>
     </div>
     <div class="card mb-4">
         <div class="card-body">
@@ -18,19 +18,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($user as $user)
+                    @foreach ($product as $product)
                         <tr>
                             <td>
-                                <p>{{ $user->name }}</p>
+                                <p>{{ $product->name }}</p>
                             </td>
                             <td>
-                                <p>{{ $user->email }}</p>
+                                <p>{{ $product->email }}</p>
                             </td>
                             <td>
-                                <p>{{ $user->alamat }}</p>
+                                <p>{{ $product->alamat }}</p>
                             </td>
                             <td>
-                                <p>{{ $user->telepon }}</p>
+                                <p>{{ $product->telepon }}</p>
                             </td>
                             <td class="text-center">
                                 <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning">
