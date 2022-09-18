@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $totaluser = User::count();
+        $totalproduct = Product::count();
         return view('admin.dashboard.index', [
             'title' => 'Dashboard',
+            'totaluser' => $totaluser,
+            'totalproduct' => $totalproduct,
         ]);
     }
 }

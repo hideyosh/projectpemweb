@@ -18,11 +18,14 @@
     <body class="sb-nav-fixed">
 
         <div id="layoutSidenav">
+
             {{-- Sidebar --}}
             @include('admin.layouts.sidebar')
             {{-- End Sidebar --}}
+
             <div id="layoutSidenav_content">
                 <main>
+
                     {{-- Navbar --}}
                     @include('admin.layouts.nav')
                     {{-- End Navbar --}}

@@ -30,7 +30,7 @@
                                 <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">
                                     <i class="bi bi-pencil-fill"></i>
                                 </a>
-                                <form action="{{ route('user.destroy', $product->id) }}" method="POST" class="d-inline">
+                                <form action="{{ route('product.destroy', $product->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus data ini?')" class="btn btn-warning">

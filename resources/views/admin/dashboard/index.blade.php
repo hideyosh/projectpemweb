@@ -7,25 +7,25 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="card bg-white text-dark mb-4">
-                    <div class="card-body">User</div>
+                    <div class="card-body">Jumlah User</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-dark stretched-link" href="{{ route('user.index') }}">View Details</a>
+                        <a class="small text-dark stretched-link" href="{{ route('user.index') }}">{{ $totaluser }}</a>
                         <div class="small text-dark"><i class="bi bi-caret-right-fill"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card bg-white text-dark mb-4">
-                    <div class="card-body">Product</div>
+                    <div class="card-body">Jumlah Product</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-dark stretched-link" href="{{ route('product.index') }}">View Details</a>
+                        <a class="small text-dark stretched-link" href="{{ route('product.index') }}">{{ $totalproduct }}</a>
                         <div class="small text-dark"><i class="bi bi-caret-right-fill"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card bg-white text-dark mb-4">
-                    <div class="card-body">Order</div>
+                    <div class="card-body">Jumlah Order</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-dark stretched-link" href="#">View Details</a>
                         <div class="small text-dark"><i class="bi bi-caret-right-fill"></i></div>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card bg-white text-dark mb-4">
-                    <div class="card-body">Transaction</div>
+                    <div class="card-body">Jumlah Transaction</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-dark stretched-link" href="#">View Details</a>
                         <div class="small text-dark"><i class="bi bi-caret-right-fill"></i></div>

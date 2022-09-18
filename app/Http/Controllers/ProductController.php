@@ -92,9 +92,18 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required','max:30'],
+            'harga' => ['required','max:255'],
+            'desc' => ['required','max:255']
+        ]);
+
+        $update = $request->all();
+        $product->update($update);
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -103,8 +112,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }
