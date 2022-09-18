@@ -5,16 +5,13 @@
     <div class="mb-4">
         <a class="btn btn-warning w-100" href="{{ route('user.create') }}">Create Admin</a>
     </div>
-    <div class="card mb-4">
+    <div class="card">
         <div class="card-body">
             <table class="table">
                 <thead>
                     <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone Number</th>
-                    <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,13 +23,7 @@
                             <td>
                                 <p>{{ $user->email }}</p>
                             </td>
-                            <td>
-                                <p>{{ $user->alamat }}</p>
-                            </td>
-                            <td>
-                                <p>{{ $user->telepon }}</p>
-                            </td>
-                            <td class="text-center">
+                            <td class="text-end">
                                 <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\product;
+use Illuminate\Support\Facades\Hash;
 
 class ProductController extends Controller
 {
@@ -30,7 +31,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create',[
+            'title' => 'Create Product'
+        ]);
     }
 
     /**
@@ -39,9 +42,19 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Product $product )
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required','max:30'],
+            'harga' => ['required','max:255'],
+            'desc' => ['required','max:255']
+        ]);
+
+        $store = $request->all();
+        $store['password'] = Hash::make($request->password);
+        $product->create($store);
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -50,9 +63,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return view('admin.product.view',[
+            'product' => $product,
+            'title' => 'Detail Product',
+        ]);
     }
 
     /**
@@ -61,9 +77,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view('admin.product.edit',[
+            'product' => $product,
+            'title' => 'Edit Product'
+        ]);
     }
 
     /**
