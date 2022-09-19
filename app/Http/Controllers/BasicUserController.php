@@ -42,7 +42,7 @@ class BasicUserController extends Controller
      */
     public function store(Request $request, User $basicuser)
     {
-        $validated = $request->validate([
+        $request->validate([
             'name' => ['required','max:30'],
             'email' => ['required','email','max:255','unique:users'],
             'alamat' => ['required','max:100'],
@@ -94,7 +94,7 @@ class BasicUserController extends Controller
      */
     public function update(Request $request, User $basicuser)
     {
-        $validated = $request->validate([
+        $request->validate([
             'name' => ['required','max:30'],
             'email' => ['required','email','max:255'],
             'alamat' => ['required','max:100'],

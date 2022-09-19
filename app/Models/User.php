@@ -22,14 +22,14 @@ class User extends Authenticatable
 
     protected $guarded = ['id'];
 
-    protected $fillable = [
-        'name',
-        'email',
-        'alamat',
-        'telepon',
-        'password',
-        'role',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'alamat',
+    //     'telepon',
+    //     'password',
+    //     'role',
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -51,10 +51,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public function password(): Attribute
-    // {
-    //     return Attribute::make(
-    //         set: fn ($value) => Hash::make($value)
-    //     );
-    // }
+    public function order()
+    {
+        return $this->hasMany(order::class);
+    }
 }
