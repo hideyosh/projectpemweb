@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 // use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+// use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -50,6 +50,7 @@ class UserController extends Controller
             'name' => ['required','max:30'],
             'email' => ['required','email','max:255','unique:users'],
             'alamat' => ['required','max:100'],
+            'role' => ['required'],
             'telepon' => ['required','max:13'],
             'password' => ['required','min:8'],
         ]);
@@ -100,8 +101,9 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required','max:30'],
-            'email' => ['required','email','max:255'       ],
+            'email' => ['required','email','max:255'],
             'alamat' => ['required','max:100'],
+            'role' => ['required'],
             'telepon' => ['required','max:13'],
             'password' => ['required','min:8'],
         ]);

@@ -32,6 +32,13 @@
                             <input type="password" class="form-control" name="password" placeholder="Masukan password">
                         </div>
                         <div class="mb-3">
+                            <label>Role</label>
+                            <select name="role" class="form-select" aria-label="Default select example">
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="alamat" class="form-label">Address</label>
                             <textarea type="text" class="form-control" name="alamat" placeholder="Masukan alamat" rows="3"></textarea>
                         </div>

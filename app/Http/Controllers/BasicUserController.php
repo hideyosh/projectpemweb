@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class BasicUserController extends Controller
 {
@@ -14,8 +15,9 @@ class BasicUserController extends Controller
      */
     public function index()
     {
-        $basicuser = User::where('')
+        $basicuser = User::where('role', 'user')->paginate('10');
         return view('admin.basicuser.index',[
+            'title' => 'User Table',
             'basicuser' => $basicuser,
         ]);
     }
@@ -27,7 +29,9 @@ class BasicUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.basicuser.view',[
+            'title' => 'Create User'
+        ]);
     }
 
     /**
@@ -36,9 +40,21 @@ class BasicUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $basicuser)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required','max:30'],
+            'email' => ['required','email','max:255','unique:users'],
+            'alamat' => ['required','max:100'],
+            'telepon' => ['required','max:13'],
+            'password' => ['required','min:8'],
+        ]);
+
+        $store = $request->all();
+        $store['password'] = Hash::make($request->password);
+        $basicuser->create($store);
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -47,9 +63,12 @@ class BasicUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $basicuser)
     {
-        //
+        return view('admin.basicuser.view',[
+            'title' => 'Detail User',
+            'basicuser' => $basicuser,
+        ]);
     }
 
     /**
@@ -58,9 +77,12 @@ class BasicUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $basicuser)
     {
-        //
+        return view('admin.basicuser.edit',[
+            'title' => 'Edit User',
+            'basicuser' => $basicuser
+        ]);
     }
 
     /**
@@ -70,9 +92,26 @@ class BasicUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $basicuser)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required','max:30'],
+            'email' => ['required','email','max:255'],
+            'alamat' => ['required','max:100'],
+            'role' => ['required'],
+            'telepon' => ['required','max:13'],
+            'password' => ['required','min:8'],
+        ]);
+
+        $update = $request->all();
+
+        if ($request->filled('password')) {
+            $update['password'] = Hash::make($request->password);
+        }
+
+        $basicuser->update($update);
+
+        return redirect()->route('basicuser.index');
     }
 
     /**
@@ -81,8 +120,11 @@ class BasicUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $basicuser)
     {
-        //
+
+        $basicuser->delete();
+
+        return redirect()->route('basicuser.index');
     }
 }
