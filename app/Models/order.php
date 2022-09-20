@@ -12,10 +12,10 @@ class order extends Model
     protected $guarded = [ 'id'];
 
     public function user() {
-        return $this->belongsTo(order::class);
+        return $this->belongsTo(user::class);
     }
 
     public function product() {
-        return $this->belongsTo(order::class);
+        return $this->belongsTo(product::class);
     }
 }

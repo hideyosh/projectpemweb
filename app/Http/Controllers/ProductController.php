@@ -44,7 +44,7 @@ class ProductController extends Controller
      */
     public function store(Request $request, Product $product )
     {
-        $validated = $request->validate([
+        $request->validate([
             'name' => ['required','max:30'],
             'harga' => ['required','max:255'],
             'desc' => ['required','max:255']
@@ -94,7 +94,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $validated = $request->validate([
+        $request->validate([
             'name' => ['required','max:30'],
             'harga' => ['required','max:255'],
             'desc' => ['required','max:255']

@@ -3,37 +3,37 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4 mb-4">{{ $title }}</h1>
     <div class="mb-4">
-        <a class="btn btn-warning w-100" href="{{ route('user.create') }}">Create Admin</a>
+        <a class="btn btn-warning w-100" href="{{ route('order.create') }}">Create Order</a>
     </div>
     <div class="card">
         <div class="card-body">
             <table class="table">
                 <thead>
                     <tr>
-                    <th>Name</th>
-                    <th>Email</th>
+                    <th>Product name</th>
+                    <th>User name</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($user as $user)
+                    @foreach ($order as $order)
                         <tr>
                             <td>
-                                <p>{{ $user->name }}</p>
+                                <p>{{ $order->product->name }}</p>
                             </td>
                             <td>
-                                <p>{{ $user->email }}</p>
+                                <p>{{ $order->user->name }}</p>
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning">
+                                <a href="{{ route('order.show', $order->id) }}" class="btn btn-warning">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
-                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning">
+                                <a href="{{ route('order.edit', $order->id) }}" class="btn btn-warning">
                                     <i class="bi bi-pencil-fill"></i>
                                 </a>
-                                <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
+                                <form action="{{ route('order.destroy', $order->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda yakin akan menghapus {{ $user->name }}?')" class="btn btn-warning">
+                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus orderan ini?')" class="btn btn-warning">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </form>

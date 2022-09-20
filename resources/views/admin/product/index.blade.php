@@ -33,7 +33,7 @@
                                 <form action="{{ route('product.destroy', $product->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus data ini?')" class="btn btn-warning">
+                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus {{ $product->name }}?')" class="btn btn-warning">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </form>
