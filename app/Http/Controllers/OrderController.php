@@ -16,10 +16,6 @@ class OrderController extends Controller
      */
     public function index()
     {
-        // $order = DB::table('orders')
-        // ->join('products', 'orders.product_id', 'products.id')
-        // ->join ('users', 'orders.user_id', 'users.id')->get();
-
         $order = Order::with('user', 'product')->paginate('5');
         return view('admin.order.index',[
             'title' => 'Order Table',
@@ -41,8 +37,8 @@ class OrderController extends Controller
         return view('admin.order.create',[
             'title' => 'Create Order',
             'order' => $order,
-            'user' => $user,
-            'product' => $product,
+            'users' => $user,
+            'products' => $product,
         ]);
     }
 
@@ -54,17 +50,17 @@ class OrderController extends Controller
      */
     public function store(Request $request, Order $order)
     {
-     $validated =  $request->validate([
-            'name' => ['required'],
+     $request->validate([
+            'name_order' => ['required'],
             'product_id' => ['required'],
             'user_id' => ['required'],
-            'jumlah' => ['required','max:255'],
+            'jumlah_product' => ['required'],
             'tanggal' => ['required']
         ]);
 
-        // $store = $request->all();
-        $validated['user_id'] = auth()->user()->id;
-        $order->create($$validated);
+        $store = $request->all();
+        // $validated['user_id'] = auth()->user()->id;
+        $order->create($store);
 
         return redirect()->route('order.index');
     }

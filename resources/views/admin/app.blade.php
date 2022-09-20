@@ -32,12 +32,14 @@
 
                     {{-- Content --}}
                     @yield('content')
+                    {{-- End Content --}}
 
                 </main>
 
                 {{-- Footer --}}
                @include('admin.layouts.footer')
                {{-- End Footer --}}
+
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

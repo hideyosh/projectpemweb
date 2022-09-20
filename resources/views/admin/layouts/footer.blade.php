@@ -4,7 +4,7 @@
             <div class="text-muted">Copyright &copy; Your Website 2022</div>
             <div>
                 <a href="#">Privacy Policy</a>
-                    &middot;
+                    +&middot;
                 <a href="#">Terms &a`mp; Conditions</a>
             </div>
         </div>

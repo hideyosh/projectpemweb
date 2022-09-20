@@ -24,7 +24,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-bag-fill"></i></div>
                     Product
                 </a>
-                <a class="nav-link mb-2 {{ Route::is() }}" href="{{ route('order.index') }}">
+                <a class="nav-link mb-2 {{ Route::is('order.index','order.create','order.show') ? 'active' : '' }}" href="{{ route('order.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-cart-fill"></i></div>
                     Order
                 </a>
