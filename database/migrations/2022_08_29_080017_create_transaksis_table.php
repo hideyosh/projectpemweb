@@ -18,8 +18,9 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
             $table->text('desc');
             $table->enum('jenis_pembayaran',['transfer','langsung']);
-            $table->integer('total_transaksi');
+            $table->string('total_transaksi');
             $table->date('tanggal');
+            $table->enum('status',['lunas','belum_lunas']);
             $table->timestamps();
         });
     }
