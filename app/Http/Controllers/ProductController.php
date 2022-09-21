@@ -102,6 +102,7 @@ class ProductController extends Controller
 
         $update = $request->all();
         $product->update($update);
+        // product::update($product);
 
         return redirect()->route('product.index');
     }

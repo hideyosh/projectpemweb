@@ -22,7 +22,7 @@
                     <div class="mb-3">
                         <label class="form-label">Nama Product</label>
                         <select name="product_id" class="form-select" aria-label="Default select example">
-                               @foreach ($products as $product)
+                               @foreach ($product as $product)
                                <option value="{{ $product->id }}">{{ $product->name }}</option>
                                @endforeach
                         </select>
@@ -30,7 +30,7 @@
                     <div class="mb-3">
                         <label class="form-label">Nama User</label>
                         <select name="user_id" class="form-select" aria-label="Default select example">
-                               @foreach ($users as $user)
+                               @foreach ($user as $user)
                                <option value="{{ $user->id }}">{{ $user->name }}</option>
                                @endforeach
                         </select>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Tanggal</label>
-                        <input type="text" class="form-control" name="tanggal" placeholder="Masukan tanggal">
+                        <input type="date" class="form-control" name="tanggal" placeholder="Masukan tanggal">
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn bg-warning mt-3 mb-2 w-100">Create</button>

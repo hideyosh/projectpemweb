@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->integer('jumlah_product');
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

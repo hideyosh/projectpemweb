@@ -10,18 +10,18 @@
             <table class="table">
                 <thead>
                     <tr>
+                    <th>Order name</th>
                     <th>Product name</th>
-                    <th>User name</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($order as $order)
                         <tr>
                             <td>
-                                <p>{{ $order->product->name }}</p>
+                                <p>{{ $order->name_order }}</p>
                             </td>
                             <td>
-                                <p>{{ $order->user->name }}</p>
+                                <p>{{ $order->product->name }}</p>
                             </td>
                             <td class="text-end">
                                 <a href="{{ route('order.show', $order->id) }}" class="btn btn-warning">

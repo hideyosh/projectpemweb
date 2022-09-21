@@ -37,8 +37,8 @@ class OrderController extends Controller
         return view('admin.order.create',[
             'title' => 'Create Order',
             'order' => $order,
-            'users' => $user,
-            'products' => $product,
+            'user' => $user,
+            'product' => $product,
         ]);
     }
 
@@ -59,7 +59,6 @@ class OrderController extends Controller
         ]);
 
         $store = $request->all();
-        // $validated['user_id'] = auth()->user()->id;
         $order->create($store);
 
         return redirect()->route('order.index');
@@ -71,9 +70,19 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(order $order)
     {
-        //
+        $orders = Order::with('user', 'product')->get();
+        $user = User::with('order')->where('role', 'user')->get();
+        $product = product::with('order')->get();
+
+        return view('admin.order.view',[
+            'title' => 'Detail Order',
+            'order' => $order,
+            'orders' => $orders,
+            'user' => $user,
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -82,9 +91,20 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(order $order)
     {
-        //
+        $orders = Order::with('user', 'product')->get();
+        $user = User::with('order')->where('role', 'user')->get();
+        $product = product::with('order')->get();
+
+        return view('admin.order.edit',[
+            'title' => 'Edit Order',
+            'product' => $product,
+            'user' => $user,
+            'order' => $order,
+            'orders' => $orders,
+        ]);
+
     }
 
     /**
@@ -94,9 +114,20 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, order $order)
     {
-        //
+        $request->validate([
+            'name_order' => ['required'],
+            'product_id' => ['required'],
+            'user_id' => ['required'],
+            'jumlah_product' => ['required'],
+            'tanggal' => ['required']
+        ]);
+
+        $update = $request->all();
+        $order->update($update);
+
+        return redirect()->route('order.index');
     }
 
     /**
