@@ -54,7 +54,7 @@ class BasicUserController extends Controller
         $store['password'] = Hash::make($request->password);
         $basicuser->create($store);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->withToastSuccess('Created Successfully!');
     }
 
     /**
@@ -111,7 +111,7 @@ class BasicUserController extends Controller
 
         $basicuser->update($update);
 
-        return redirect()->route('basicuser.index');
+        return redirect()->route('basicuser.index')->withToastSuccess('Updated Successfully!');
     }
 
     /**
@@ -125,6 +125,6 @@ class BasicUserController extends Controller
 
         $basicuser->delete();
 
-        return redirect()->route('basicuser.index');
+        return redirect()->route('basicuser.index')->withToastSuccess('Deleted Successfully!');
     }
 }

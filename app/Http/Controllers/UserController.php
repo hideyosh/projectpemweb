@@ -59,7 +59,7 @@ class UserController extends Controller
         $store['password'] = Hash::make($request->password);
         $user->create($store);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->withToastSuccess('Created Successfully!');
     }
 
     /**
@@ -116,7 +116,7 @@ class UserController extends Controller
 
         $user->update($update);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->withToastSuccess('Updated Successfully!');
     }
 
     /**
@@ -129,6 +129,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->withToastSuccess('Deleted Successfully!');
     }
 }

@@ -54,7 +54,7 @@ class ProductController extends Controller
         $store['password'] = Hash::make($request->password);
         $product->create($store);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->withToastSuccess('Created Successfully!');
     }
 
     /**
@@ -104,7 +104,7 @@ class ProductController extends Controller
         $product->update($update);
         // product::update($product);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->withToastSuccess('Updated Successfully!');
     }
 
     /**
@@ -116,6 +116,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->withToastSuccess('Deleted Successfully!');
     }
 }

@@ -30,6 +30,10 @@
                     @include('admin.layouts.nav')
                     {{-- End Navbar --}}
 
+                    {{-- Sweetalert --}}
+                    @include('sweetalert::alert')
+                    {{-- End Sweetalert --}}
+
                     {{-- Content --}}
                     @yield('content')
                     {{-- End Content --}}

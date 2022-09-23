@@ -61,7 +61,7 @@ class OrderController extends Controller
         $store = $request->all();
         $order->create($store);
 
-        return redirect()->route('order.index');
+        return redirect()->route('order.index')->withToastSuccess('Created Successfully!');
     }
 
     /**
@@ -127,7 +127,7 @@ class OrderController extends Controller
         $update = $request->all();
         $order->update($update);
 
-        return redirect()->route('order.index');
+        return redirect()->route('order.index')->withToastSuccess('Updated Successfully!');
     }
 
     /**
@@ -139,6 +139,6 @@ class OrderController extends Controller
     public function destroy(order $order)
     {
         $order->delete();
-        return redirect()->route('order.index');
+        return redirect()->route('order.index')->withToastSuccess('Deleted Successfully!');
     }
 }
