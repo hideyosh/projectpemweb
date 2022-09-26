@@ -59,7 +59,7 @@ class TransaksiController extends Controller
         $store = $request->all();
         $transaksi->create($store);
 
-        return redirect()->route('transaksi.index');
+        return redirect()->route('transaksi.index')->withToastSuccess('Created Successfully!');
     }
 
     /**
@@ -79,9 +79,17 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(transaksi $transaksi)
     {
-        //
+        $transaksis = transaksi::with('order')->get();
+        $order = order::with('transaksi')->get();
+
+        return view('admin.transaksi.edit',[
+            'title' => 'Edit Transaction',
+            'transaksis' => $transaksis,
+            'transaksi'=> $transaksi,
+            'order' => $order,
+        ]);
     }
 
     /**
@@ -102,8 +110,9 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(transaksi $transaksi)
     {
-        //
+        $transaksi->delete();
+        return redirect()->route('transaksi.index')->withToastSuccess('Deleted Successfully!');
     }
 }

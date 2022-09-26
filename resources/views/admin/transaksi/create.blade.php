@@ -40,7 +40,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="desc" class="form-label">Description</label>
-                        <input type="text" class="form-control" name="desc" placeholder="Masukan masukan deskripsi">
+                        <textarea type="text" class="form-control" name="desc" placeholder="Masukan deskripsi transaksi" rows="3"></textarea>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn bg-warning mt-3 mb-2 w-100">Create</button>
