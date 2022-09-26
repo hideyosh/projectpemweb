@@ -45,9 +45,21 @@ class TransaksiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, transaksi $transaksi)
     {
-        //
+        $request -> validate([
+            'order_id' => ['required'],
+            'jenis_pembayaran' => ['required'],
+            'desc' => ['required'],
+            'total_transaksi' => ['required'],
+            'tanggal' => ['required'],
+        ]);
+
+
+        $store = $request->all();
+        $transaksi->create($store);
+
+        return redirect()->route('transaksi.index');
     }
 
     /**

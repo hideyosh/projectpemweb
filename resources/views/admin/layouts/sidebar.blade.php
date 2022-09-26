@@ -24,11 +24,11 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-bag-fill"></i></div>
                     Product
                 </a>
-                <a class="nav-link mb-2 {{ Route::is('order.index','order.create','order.show') ? 'active' : '' }}" href="{{ route('order.index') }}">
+                <a class="nav-link mb-2 {{ Route::is('order.index','order.create','order.edit','order.show') ? 'active' : '' }}" href="{{ route('order.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-cart-fill"></i></div>
                     Order
                 </a>
-                <a class="nav-link mb-2" href="{{ route('transaksi.index') }}">
+                <a class="nav-link mb-2 {{ Route::is('transaksi.edit','transaksi.index','transaksi.edit','transaksi.show')  ? 'active' : ''  }}" href="{{ route('transaksi.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-wallet"></i></div>
                     Transaction
                 </a>
