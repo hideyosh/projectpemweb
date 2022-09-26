@@ -10,4 +10,8 @@ class transaksi extends Model
     use HasFactory;
 
     protected $guarded = [ 'id' ];
+
+    public function order() {
+        return $this->belongsTo(order::class);
+    }
 }

@@ -18,4 +18,8 @@ class order extends Model
     public function product() {
         return $this->belongsTo(product::class);
     }
+
+    public function transaksi() {
+        return $this->hasOne(transaksi::class, 'order_id', 'id');
+    }
 }
