@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\order;
+use App\Models\transaksi;
 
 class TransaksiController extends Controller
 {
@@ -13,7 +15,11 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $transaksi = transaksi::with('order')->paginate('5');
+        return view('admin.transaksi.index', [
+            'title' => 'Transaction Table',
+            'transaksi' => $transaksi,
+        ]);
     }
 
     /**
@@ -23,7 +29,14 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        //
+        $transaksi = transaksi::with('order')->get();
+        $order = order::with('transaksi')->get();
+
+        return view('admin.transaksi.create',[
+            'title' => 'Create Transaction',
+            'transaksi' => $transaksi,
+            'order' => $order,
+        ]);
     }
 
     /**

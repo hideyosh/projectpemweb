@@ -28,7 +28,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-cart-fill"></i></div>
                     Order
                 </a>
-                <a class="nav-link mb-2" href="charts.html">
+                <a class="nav-link mb-2" href="{{ route('transaksi.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-wallet"></i></div>
                     Transaction
                 </a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BasicUserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,5 @@ Route::resource('user', UserController::class);
 Route::resource('product', ProductController::class);
 Route::resource('basicuser', BasicUserController::class);
 Route::resource('order', OrderController::class);
+Route::resource('transaksi', transaksiController::class);
 

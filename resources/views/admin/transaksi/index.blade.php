@@ -3,41 +3,45 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4 mb-4">{{ $title }}</h1>
     <div class="mb-4">
-        <a class="btn btn-warning w-100" href="{{ route('product.create') }}">Create Product</a>
+        <a class="btn btn-warning w-100" href="{{ route('transaksi.create') }}">Create Transaction</a>
     </div>
     <div class="card mb-4">
         <div class="card-body">
             <table class="table">
                 <thead>
                     <tr>
-                    <th>Name</th>
-                    <th>Price</th>
+                    <th>Name order</th>
+                    <th>Date</th>
+                    <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($product as $product)
+                    @foreach ($transaksi as $transaksi)
                         <tr>
                             <td>
-                                <p>{{ $product->name }}</p>
+                                <p>{{ $transaksi->order->name_order }}</p>
                             </td>
                             <td>
-                                <p>{{ $product->harga }}</p>
+                                <p>{{ $transaksi->order->tanggal }}</p>
+                            </td>
+                            <td>
+                                <p>{{ $transaksi->status }}</p>
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('product.show', $product->id) }}" class="btn btn-warning">
+                                <a href="{{ route('transaksi.show', $transaksi->id) }}" class="btn btn-warning">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
-                                <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">
+                                <a href="{{ route('transaksi.edit', $transaksi->id) }}" class="btn btn-warning">
                                     <i class="bi bi-pencil-fill"></i>
                                 </a>
-                                <form action="{{ route('product.destroy', $product->id) }}" method="POST" class="d-inline">
+                                <form action="{{ route('transaksi.destroy', $transaksi->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus {{ $product->name }}?')" class="btn btn-warning">
+                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus transaksi ini?')" class="btn btn-warning">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </form>
-                            </td>
+                            <td>
                         </tr>
                     @endforeach
                 </tbody>
