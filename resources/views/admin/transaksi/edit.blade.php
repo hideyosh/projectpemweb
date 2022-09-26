@@ -32,8 +32,15 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label>Status</label>
+                        <select name="status" class="form-select" aria-label="Default select example">
+                                <option value="lunas" @if ($transaksi->status == "lunas")@endif>Lunas</option>
+                                <option value="belum_lunas" @if ($transaksi->status == "belum_lunas")@endif>Belum lunas</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="jumlah" class="form-label">Total harga</label>
-                        <input type="text" class="form-control" name="total_transaksi" placeholder="Masukan Total Transaksi">
+                        <input type="text" class="form-control" name="total_transaksi" value="{{ $transaksi->total_transaksi }}">
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Tanggal</label>
@@ -44,7 +51,7 @@
                         <textarea type="text" class="form-control" name="desc" rows="3">{{ $transaksi->desc }}</textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn bg-warning mt-3 mb-2 w-100">Create</button>
+                        <button type="submit" class="btn bg-warning mt-3 mb-2 w-100">Edit</button>
                     </div>
                </form>
             </div>

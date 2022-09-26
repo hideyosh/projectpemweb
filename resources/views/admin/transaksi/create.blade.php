@@ -31,6 +31,13 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label>Status</label>
+                        <select name="status" class="form-select" aria-label="Default select example">
+                                <option value="lunas">Lunas</option>
+                                <option value="belum_lunas">Belum lunas</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="jumlah" class="form-label">Total harga</label>
                         <input type="text" class="form-control" name="total_transaksi" placeholder="Masukan Total Transaksi">
                     </div>

@@ -68,9 +68,16 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(transaksi $transaksi)
     {
-        //
+        $transaksi = transaksi::with('order')->get();
+        $order = order::with('transaksi')->get();
+
+        return view('admin.transaksi.view',[
+            'title' => 'Detail Transaction',
+            'transaksi' => $transaksi,
+            'order' => $order,
+        ]);
     }
 
     /**
@@ -99,9 +106,21 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, transaksi $transaksi)
     {
-        //
+        $request -> validate([
+            'order_id' => ['required'],
+            'jenis_pembayaran' => ['required'],
+            'desc' => ['required'],
+            'total_transaksi' => ['required'],
+            'tanggal' => ['required'],
+        ]);
+
+
+        $update = $request->all();
+        $transaksi->update($update);
+
+        return redirect()->route('transaksi.index')->withToastSuccess('Updated Successfully!');
     }
 
     /**
