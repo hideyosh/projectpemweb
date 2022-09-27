@@ -38,5 +38,6 @@ Route::resource('product', ProductController::class);
 Route::resource('basicuser', BasicUserController::class);
 Route::resource('order', OrderController::class);
 Route::resource('transaksi', transaksiController::class);
-Route::resource('laporan', LaporanController::class);;
-
+// Route::resource('laporan', LaporanController::class);
+Route::get('/laporan',[LaporanController::class, 'index'])->name('laporan.index');
+Route::get('/laporan/show',[LaporanController::class, 'show'])->name('laporan.show');

@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
+            // $table->foreignId('');
             $table->foreignId('transaksi_id')->constrained('transaksis')->cascadeOnDelete();
-            $table->integer('jumlah_pelanggan');
-            $table->integer('jumlah_transaksi');
-            $table->date('tanggal');
+            // $table->integer('jumlah_pelanggan');
+            // $table->integer('jumlah_transaksi');
+            // $table->date('tanggal');
             $table->timestamps();
         });
     }

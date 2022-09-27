@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\transaksi;
 
 class LaporanController extends Controller
 {
@@ -13,7 +14,11 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        //
+        $laporan = transaksi::where('status', 'lunas')->paginate('5');
+        return view('admin.laporan.index',[
+            'laporan' => $laporan,
+            'title' => 'Report Table',
+        ]);
     }
 
     /**
@@ -43,9 +48,9 @@ class LaporanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(transaksi $laporan)
     {
-        //
+        return view('admin.laporan.index');
     }
 
     /**
