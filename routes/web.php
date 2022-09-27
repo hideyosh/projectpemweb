@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BasicUserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\LaporanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +38,5 @@ Route::resource('product', ProductController::class);
 Route::resource('basicuser', BasicUserController::class);
 Route::resource('order', OrderController::class);
 Route::resource('transaksi', transaksiController::class);
+Route::resource('laporan', LaporanController::class);;
 

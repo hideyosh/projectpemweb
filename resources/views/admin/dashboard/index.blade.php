@@ -27,7 +27,7 @@
                 <div class="card bg-white text-dark mb-4">
                     <div class="card-body">Jumlah Order</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-dark stretched-link" href="#">View Details</a>
+                        <a class="small text-dark stretched-link" href="{{ route('order.index') }}">{{ $totalorder }}</a>
                         <div class="small text-dark"><i class="bi bi-caret-right-fill"></i></div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="card bg-white text-dark mb-4">
                     <div class="card-body">Jumlah Transaction</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-dark stretched-link" href="#">View Details</a>
+                        <a class="small text-dark stretched-link" href="{{ route('transaksi.index') }}">{{ $totaltransaksi }}</a>
                         <div class="small text-dark"><i class="bi bi-caret-right-fill"></i></div>
                     </div>
                 </div>

@@ -21,16 +21,16 @@
                                 <p>{{ $basicuser->email }}</p>
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('basicuser.show', $basicuser->id) }}" class="btn btn-warning">
+                                <a href="{{ route('basicuser.show', $basicuser->id) }}" class="btn btn-success">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
-                                <a href="{{ route('basicuser.edit', $basicuser->id) }}" class="btn btn-warning">
+                                {{-- <a href="{{ route('basicuser.edit', $basicuser->id) }}" class="btn btn-warning">
                                     <i class="bi bi-pencil-fill"></i>
-                                </a>
+                                </a> --}}
                                 <form action="{{ route('user.destroy', $basicuser->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus data ini?')" class="btn btn-warning">
+                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus data ini?')" class="btn btn-danger">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </form>

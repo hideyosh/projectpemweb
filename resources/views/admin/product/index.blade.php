@@ -24,7 +24,7 @@
                                 <p>{{ $product->harga }}</p>
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('product.show', $product->id) }}" class="btn btn-warning">
+                                <a href="{{ route('product.show', $product->id) }}" class="btn btn-success">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
                                 <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">
@@ -33,7 +33,7 @@
                                 <form action="{{ route('product.destroy', $product->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus {{ $product->name }}?')" class="btn btn-warning">
+                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus {{ $product->name }}?')" class="btn btn-danger">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </form>

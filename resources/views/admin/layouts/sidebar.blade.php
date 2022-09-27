@@ -8,7 +8,7 @@
                     Dashboard
                 </a>
                 <a class="nav-link collapsed mb-2
-                {{ Route::is('user.index','user.create','user.edit','user.show','basicuser.index') ? 'active' : '' }}"
+                {{ Route::is('user.index','user.create','user.edit','user.show','basicuser.index', 'basicuser.edit', 'basicuser.show') ? 'active' : '' }}"
                 href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon" ><i class="fas fa-user"></i></div>
                         User
@@ -32,7 +32,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-wallet"></i></div>
                     Transaction
                 </a>
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{ route('laporan.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-file-earmark-text"></i></div>
                     Report
                 </a>

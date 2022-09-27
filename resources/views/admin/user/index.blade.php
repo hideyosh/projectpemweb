@@ -24,7 +24,7 @@
                                 <p>{{ $user->email }}</p>
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning">
+                                <a href="{{ route('user.show', $user->id) }}" class="btn btn-success">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
                                 <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning">
@@ -33,7 +33,7 @@
                                 <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda yakin akan menghapus {{ $user->name }}?')" class="btn btn-warning">
+                                    <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda yakin akan menghapus {{ $user->name }}?')" class="btn btn-danger">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </form>
