@@ -37,10 +37,10 @@
                                 <option value="belum_lunas">Belum lunas</option>
                         </select>
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="jumlah" class="form-label">Total harga</label>
                         <input type="text" class="form-control" name="total_transaksi" placeholder="Masukan Total Transaksi">
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="date" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" name="tanggal" placeholder="Masukan tanggal">

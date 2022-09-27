@@ -18,10 +18,10 @@
                             <td>Nama user</td>
                             <td>{{ $order->user->name }}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <td>Jumlah</td>
                             <td>{{ $order->jumlah_product }}</td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <td>Tanggal</td>
                             <td>{{ $order->tanggal }}</td>

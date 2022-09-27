@@ -51,7 +51,7 @@ class TransaksiController extends Controller
             'order_id' => ['required'],
             'jenis_pembayaran' => ['required'],
             'desc' => ['required'],
-            'total_transaksi' => ['required'],
+            // 'total_transaksi' => ['required'],
             'tanggal' => ['required'],
         ]);
 
@@ -70,13 +70,15 @@ class TransaksiController extends Controller
      */
     public function show(transaksi $transaksi)
     {
-        $transaksi = transaksi::with('order')->get();
+        $transaksis = transaksi::with('order')->get();
         $order = order::with('transaksi')->get();
 
         return view('admin.transaksi.view',[
             'title' => 'Detail Transaction',
+            'transaksis' => $transaksis,
             'transaksi' => $transaksi,
             'order' => $order,
+
         ]);
     }
 
@@ -112,7 +114,7 @@ class TransaksiController extends Controller
             'order_id' => ['required'],
             'jenis_pembayaran' => ['required'],
             'desc' => ['required'],
-            'total_transaksi' => ['required'],
+            // 'total_transaksi' => ['required'],
             'tanggal' => ['required'],
         ]);
 

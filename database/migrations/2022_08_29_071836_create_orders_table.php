@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name_order');
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->integer('jumlah_product');
+            // $table->text('jumlah_product');
             $table->date('tanggal');
             $table->timestamps();
         });

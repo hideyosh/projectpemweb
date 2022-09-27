@@ -54,7 +54,7 @@ class OrderController extends Controller
             'name_order' => ['required'],
             'product_id' => ['required'],
             'user_id' => ['required'],
-            'jumlah_product' => ['required'],
+            // 'jumlah_product' => ['required'],
             'tanggal' => ['required']
         ]);
 
@@ -120,7 +120,7 @@ class OrderController extends Controller
             'name_order' => ['required'],
             'product_id' => ['required'],
             'user_id' => ['required'],
-            'jumlah_product' => ['required'],
+            // 'jumlah_product' => ['required'],
             'tanggal' => ['required']
         ]);
 

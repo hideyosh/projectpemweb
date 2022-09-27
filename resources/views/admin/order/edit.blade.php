@@ -36,16 +36,16 @@
                                @endforeach
                         </select>
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="jumlah" class="form-label">Jumlah</label>
                         <input type="text" class="form-control" name="jumlah_product" value="{{ $order->jumlah_product }}">
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="date" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" name="tanggal" value="{{ $order->tanggal }}">
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn bg-warning mt-3 mb-2 w-100">Create</button>
+                        <button type="submit" class="btn bg-warning mt-3 mb-2 w-100">Edit</button>
                     </div>
                </form>
             </div>
