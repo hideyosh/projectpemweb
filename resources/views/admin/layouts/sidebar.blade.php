@@ -32,7 +32,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-wallet"></i></div>
                     Transaction
                 </a>
-                <a class="nav-link" href="{{ route('laporan.index') }}">
+                <a class="nav-link {{ Route::is('laporan.index','laporan.show') ? 'active' : '' }}"  href="{{ route('laporan.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-file-earmark-text"></i></div>
                     Report
                 </a>

@@ -50,7 +50,10 @@ class LaporanController extends Controller
      */
     public function show(transaksi $laporan)
     {
-        return view('admin.laporan.index');
+        return view('admin.laporan.view',[
+            'laporan'=> $laporan,
+            'title' => 'Report Detail',
+        ]);
     }
 
     /**
@@ -82,8 +85,9 @@ class LaporanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(transaksi $laporan)
     {
-        //
+        $laporan->delete();
+        return redirect()->route('laporan.show')->withToastSuccess('Deleted Successfully!');
     }
 }

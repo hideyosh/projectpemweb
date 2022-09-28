@@ -2,8 +2,13 @@
 @section('content')
 <div class="container-fluid px-4">
     <h1 class="mt-4 mb-4">{{ $title }}</h1>
-    <div class="mb-4">
-        <a class="btn btn-warning w-100" href="{{ route('transaksi.create') }}">Create Transaction</a>
+    <div class="d-flex">
+        <div class="mb-4">
+            <a class="btn btn-warning px-5" href="{{ route('transaksi.create') }}">Export PDF</a>
+        </div>
+        <div class="mb-4 ms-4">
+            <a class="btn btn-warning px-5" href="{{ route('transaksi.create') }}">Export Excel</a>
+        </div>
     </div>
     <div class="card mb-4">
         <div class="card-body">
