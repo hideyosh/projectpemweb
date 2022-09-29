@@ -33,7 +33,7 @@
                                 <p>{{ $laporan->status }}</p>
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('transaksi.show', $laporan->id) }}" class="btn btn-success">
+                                <a href="{{ route('laporan.show', $laporan->id) }}" class="btn btn-success">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
                                 {{-- <a href="{{ route('transaksi.edit', $laporan->id) }}" class="btn btn-warning">
