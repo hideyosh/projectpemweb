@@ -7,7 +7,7 @@
             <div class="table-responsive">
                 <table class="table table-editable table-nowrap align-middle table-edits">
                     <tr>
-                        <td>Name Order</td>
+                        <td>Nama order</td>
                         <td>{{ $laporan->order->name_order }}</td>
                     </tr>
                     <tr>
@@ -19,15 +19,19 @@
                         <td>{{ $laporan->order->user->name }}</td>
                     </tr>
                     <tr>
-                        <td>Total laporan</td>
+                        <td>Total transaksi</td>
                         <td>{{ $laporan->order->product->harga }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Pembayaran</td>
+                        <td>{{ $laporan->jenis_pembayaran }}</td>
                     </tr>
                     <tr>
                         <td>Tanggal</td>
                         <td>{{ $laporan->tanggal }}</td>
                     </tr>
                     <tr>
-                        <td>Stauts laporan</td>
+                        <td>Stauts transaksi</td>
                         <td>{{ $laporan->status }}</td>
                     </tr>
                 </table>

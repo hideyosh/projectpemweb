@@ -98,7 +98,7 @@ class LaporanController extends Controller
 
     public function exportpdf()
     {
-        $laporan = transaksi::get();
+        $laporan = transaksi::with('order')->get();
         $pdf = Pdf::loadview('admin.laporan.pdf',[
             'laporan' => $laporan,
         ]);
