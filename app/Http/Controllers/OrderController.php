@@ -73,15 +73,15 @@ class OrderController extends Controller
     public function show(order $order)
     {
         $orders = Order::with('user', 'product')->get();
-        $user = User::with('order')->where('role', 'user')->get();
-        $product = product::with('order')->get();
+        // $user = User::with('order')->where('role', 'user')->get();
+        // $product = product::with('order')->get();
 
         return view('admin.order.view',[
             'title' => 'Detail Order',
             'order' => $order,
             'orders' => $orders,
-            'user' => $user,
-            'product' => $product,
+            // 'user' => $user,
+            // 'product' => $product,
         ]);
     }
 
