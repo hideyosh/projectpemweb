@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\transaksi;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class LaporanController extends Controller
 {
@@ -89,5 +90,14 @@ class LaporanController extends Controller
     {
         $laporan->delete();
         return redirect()->route('laporan.show')->withToastSuccess('Deleted Successfully!');
+    }
+
+    public function exportpdf()
+    {
+        $laporan = transaksi::get();
+        $pdf = Pdf::loadview('admin.laporan.pdf',[
+            'laporan' => $laporan,
+        ]);
+        return $pdf->download('laporan.pdf');
     }
 }

@@ -41,3 +41,4 @@ Route::resource('transaksi', transaksiController::class);
 // Route::resource('laporan', LaporanController::class);
 Route::get('/laporan',[LaporanController::class, 'index'])->name('laporan.index');
 Route::get('/laporan/show',[LaporanController::class, 'show'])->name('laporan.show');
+Route::get('/laporan/exportpdf',[LaporanController::class, 'exportpdf'])->name('laporan.exportpdf');
