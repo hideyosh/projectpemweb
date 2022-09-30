@@ -39,7 +39,7 @@
                                 {{-- <a href="{{ route('transaksi.edit', $laporan->id) }}" class="btn btn-warning">
                                     <i class="bi bi-pencil-fill"></i>
                                 </a> --}}
-                                <form action="{{ route('transaksi.destroy', $laporan->id) }}" method="POST" class="d-inline">
+                                <form action="{{ route('laporan.destroy', $laporan->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button href="{{ route('logout') }}"  onclick="return confirm('Apakah anda akan menghapus transaksi ini?')" class="btn btn-danger">

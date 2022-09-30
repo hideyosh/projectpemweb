@@ -93,7 +93,7 @@ class LaporanController extends Controller
     public function destroy(transaksi $laporan)
     {
         $laporan->delete();
-        return redirect()->route('laporan.show')->withToastSuccess('Deleted Successfully!');
+        return redirect()->route('laporan.index')->withToastSuccess('Deleted Successfully!');
     }
 
     public function exportpdf()
