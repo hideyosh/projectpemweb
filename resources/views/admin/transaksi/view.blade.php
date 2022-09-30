@@ -23,6 +23,10 @@
                             <td>{{ $transaksi->order->product->harga }}</td>
                         </tr>
                         <tr>
+                            <td>Jenis Pembayaran</td>
+                            <td>{{ $transaksi->jenis_pembayaran }}</td>
+                        </tr>
+                        <tr>
                             <td>Tanggal</td>
                             <td>{{ $transaksi->tanggal }}</td>
                         </tr>

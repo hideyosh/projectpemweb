@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\transaksi;
 use App\Models\order;
+use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class LaporanController extends Controller
@@ -18,7 +19,7 @@ class LaporanController extends Controller
     {
         $laporan = transaksi::with('order')->where('status', 'lunas')->paginate('5');
         return view('admin.laporan.index',[
-            'laporan' => $laporan,
+            'laporans' => $laporan,
             'title' => 'Report Table',
         ]);
     }
@@ -52,11 +53,10 @@ class LaporanController extends Controller
      */
     public function show(transaksi $laporan)
     {
-        $laporan = transaksi::with('order')->first();
-        // $order = order::with('transaksi')->get();
+        // $laporans = transaksi::with('order')->get();
         return view('admin.laporan.view',[
             'laporan'=> $laporan,
-            // 'order' => $order,
+            // 'laporans' => $laporans,
             'title' => 'Report Detail',
         ]);
     }

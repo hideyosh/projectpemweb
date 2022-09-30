@@ -70,12 +70,12 @@ class TransaksiController extends Controller
      */
     public function show(transaksi $transaksi)
     {
-        $transaksis = transaksi::with('order')->get();
+        // $transaksis = transaksi::with('order')->get();
         // $order = order::with('transaksi')->get();
 
         return view('admin.transaksi.view',[
             'title' => 'Detail Transaction',
-            'transaksis' => $transaksis,
+            // 'transaksis' => $transaksis,
             'transaksi' => $transaksi,
             // 'order' => $order,
 

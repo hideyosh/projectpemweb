@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($laporan as $laporan)
+                    @foreach ($laporans as $laporan)
                         <tr>
                             <td>
                                 <p>{{ $laporan->order->name_order }}</p>
