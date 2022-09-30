@@ -7,7 +7,7 @@
             <a class="btn btn-warning px-5" href="{{ route('laporan.exportpdf') }}">Export PDF</a>
         </div>
         <div class="mb-4 ms-4">
-            <a class="btn btn-warning px-5" href="{{ route('laporan.index') }}">Export Excel</a>
+            <a class="btn btn-warning px-5" href="{{ route('laporan.exportexcel') }}">Export Excel</a>
         </div>
     </div>
     <div class="card mb-4">

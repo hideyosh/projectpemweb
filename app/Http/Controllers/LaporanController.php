@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TransaksiExport;
 use Illuminate\Http\Request;
 use App\Models\transaksi;
 use App\Models\order;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class LaporanController extends Controller
 {
@@ -103,5 +106,10 @@ class LaporanController extends Controller
             'laporan' => $laporan,
         ]);
         return $pdf->download('laporan.pdf');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new TransaksiExport, 'transaksi.xlsx');
     }
 }

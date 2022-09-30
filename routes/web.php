@@ -43,3 +43,4 @@ Route::get('/laporan',[LaporanController::class, 'index'])->name('laporan.index'
 Route::get('/laporan/show/{laporan}',[LaporanController::class, 'show'])->name('laporan.show');
 Route::delete('/laporan/destroy/{laporan}',[LaporanController::class, 'destroy'])->name('laporan.destroy');
 Route::get('/laporan/exportpdf',[LaporanController::class, 'exportpdf'])->name('laporan.exportpdf');
+Route::get('/laporan/exportexcel',[LaporanController::class, 'exportexcel'])->name('laporan.exportexcel');
