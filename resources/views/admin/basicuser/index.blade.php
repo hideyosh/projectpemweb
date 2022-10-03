@@ -38,8 +38,10 @@
                         </tr>
                     @endforeach
                 </tbody>
-                    {{ $basicusers->links() }}
             </table>
+            <div>
+                {{ $basicusers->links() }}
+            </div>
         </div>
     </div>
 </div>

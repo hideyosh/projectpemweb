@@ -15,7 +15,7 @@ class BasicUserController extends Controller
      */
     public function index()
     {
-        $basicuser = User::where('role', 'user')->latest()->paginate(5);
+        $basicuser = User::where('role', 'user')->latest()->paginate(8);
         return view('admin.basicuser.index',[
             'title' => 'User Table',
             'basicusers' => $basicuser,
