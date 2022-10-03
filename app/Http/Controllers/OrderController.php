@@ -19,7 +19,7 @@ class OrderController extends Controller
         $order = Order::with('user', 'product')->paginate('5');
         return view('admin.order.index',[
             'title' => 'Order Table',
-            'order' => $order,
+            'orders' => $order,
         ]);
     }
 
@@ -72,14 +72,14 @@ class OrderController extends Controller
      */
     public function show(order $order)
     {
-        $orders = Order::with('user', 'product')->get();
+        // $orders = Order::with('user', 'product')->get();
         // $user = User::with('order')->where('role', 'user')->get();
         // $product = product::with('order')->get();
 
         return view('admin.order.view',[
             'title' => 'Detail Order',
             'order' => $order,
-            'orders' => $orders,
+            // 'orders' => $orders,
             // 'user' => $user,
             // 'product' => $product,
         ]);

@@ -15,7 +15,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($order as $order)
+                    @foreach ($orders as $order)
                         <tr>
                             <td>
                                 <p>{{ $order->name_order }}</p>

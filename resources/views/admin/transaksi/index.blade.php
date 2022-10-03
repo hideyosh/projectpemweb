@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($transaksi as $transaksi)
+                    @foreach ($transaksis as $transaksi)
                         <tr>
                             <td>
                                 <p>{{ $transaksi->order->name_order }}</p>

@@ -18,7 +18,7 @@ class TransaksiController extends Controller
         $transaksi = transaksi::with('order')->where('status', 'belum_lunas')->paginate('5');
         return view('admin.transaksi.index', [
             'title' => 'Transaction Table',
-            'transaksi' => $transaksi,
+            'transaksis' => $transaksi,
         ]);
     }
 

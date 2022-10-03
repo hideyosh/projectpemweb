@@ -33,14 +33,18 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('user', UserController::class);
-Route::resource('product', ProductController::class);
-Route::resource('basicuser', BasicUserController::class);
-Route::resource('order', OrderController::class);
-Route::resource('transaksi', transaksiController::class);
-// Route::resource('laporan', LaporanController::class);
-Route::get('/laporan',[LaporanController::class, 'index'])->name('laporan.index');
-Route::get('/laporan/show/{laporan}',[LaporanController::class, 'show'])->name('laporan.show');
-Route::delete('/laporan/destroy/{laporan}',[LaporanController::class, 'destroy'])->name('laporan.destroy');
-Route::get('/laporan/exportpdf',[LaporanController::class, 'exportpdf'])->name('laporan.exportpdf');
-Route::get('/laporan/exportexcel',[LaporanController::class, 'exportexcel'])->name('laporan.exportexcel');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('user', UserController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('basicuser', BasicUserController::class);
+    Route::resource('order', OrderController::class);
+    Route::resource('transaksi', transaksiController::class);
+    // Route::resource('laporan', LaporanController::class);
+    Route::get('/laporan',[LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/show/{laporan}',[LaporanController::class, 'show'])->name('laporan.show');
+    Route::delete('/laporan/destroy/{laporan}',[LaporanController::class, 'destroy'])->name('laporan.destroy');
+    Route::get('/laporan/exportpdf',[LaporanController::class, 'exportpdf'])->name('laporan.exportpdf');
+    Route::get('/laporan/exportexcel',[LaporanController::class, 'exportexcel'])->name('laporan.exportexcel');
+});
+

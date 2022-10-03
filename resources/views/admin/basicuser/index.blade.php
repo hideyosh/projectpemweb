@@ -12,7 +12,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($basicuser as $basicuser)
+                    @foreach ($basicusers as $basicuser)
                         <tr>
                             <td>
                                 <p>{{ $basicuser->name }}</p>
@@ -38,6 +38,7 @@
                         </tr>
                     @endforeach
                 </tbody>
+                    {{ $basicusers->links() }}
             </table>
         </div>
     </div>
