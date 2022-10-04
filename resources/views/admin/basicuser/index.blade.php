@@ -39,7 +39,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div>
+            <div class="">
                 {{ $basicusers->links() }}
             </div>
         </div>
