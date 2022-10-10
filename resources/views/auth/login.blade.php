@@ -1,61 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-
-    {{-- Fonts --}}
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    {{-- Css --}}
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
-      <!-- Scripts -->
-      @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{asset('backend/assets/images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/vendor/animsition/css/animsition.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/vendor/daterangepicker/daterangepicker.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/main.css')}}">
+<!--===============================================================================================-->
 </head>
 <body>
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header text-center">Login</div>
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
-                                  @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                @csrf
-                                <div class="mb-3">
-                                  <input type="email" class="form-control" id="pmail" aria-describedby="emailHelp" name="email" placeholder="Email">
-                                </div>
-                                  <div class="mb-4">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                                  </div>
-                                <button type="submit" class="btn btn-warning w-100 mt-2">Sign In</button>
-                                <div class="mt-2 text-center">
-                                    <a class="btn btn-link"  style="color: #FFB200;" href="{{ route('register') }}">Doesn't have an account?</a>
-                                </div><div class=" text-center">
-                                    <a class="link-home" href="{{ route('welcome') }}">Back to home</a>
-                                </div>
-                            </form>
-                        </div>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						Login
+					</span>
+				</div>
+
+				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Email</span>
+						<input class="form-group" type="email" name="email" required="" placeholder="Enter email">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="form-control" type="password" name="password" required="" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+
+                        <div>
+							<a href="{{ route('register') }}" class="txt1">
+								Buat akun
+                            </a>
+						</div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Log in
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<!--===============================================================================================-->
+	<script src="{{asset('backend/assets/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('backend/assets/vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('backend/assets/vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{asset('backend/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('backend/assets/vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('backend/assets/vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{asset('backend/assets/vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('backend/assets/vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('backend/assets/js/main.js')}}"></script>
+
 </body>
 </html>
+
